@@ -92,7 +92,7 @@ body {
 }
 
 table#background {
-	// background: $grey;
+	background: $grey;
 	width:600px;
 	max-width:600px;
 }
@@ -109,7 +109,7 @@ table#background {
 	.main_banner {
 		.title {
 			@include gutter;
-			font-size:10em;
+			font-size:9.5em;
 			font-weight:bold;
 			text-align:center;
 			color: $black;
@@ -120,7 +120,7 @@ table#background {
 			text-align:center;
 			p {
 				@include gutter;
-				font-size:6.7em;
+				font-size:6.25em;
 				line-height:100%;
 				color: $black;
 				margin:0;
@@ -146,7 +146,7 @@ table#background {
 			text-align:center;
 			@include gutter;
 			padding-bottom:10px;
-			@include btn($black, $white, 120px );
+			@include btn($black, $white, 100px );
 		}
 	}
 
@@ -165,6 +165,7 @@ table#background {
 	.columns {
 		padding-bottom:20px;
 		border-bottom: 3px solid $black;
+		width:50%;
 		.item {
 			@include gutter;
 			table {
@@ -183,9 +184,11 @@ table#background {
 					font-size:$font_size;
 					color: $black;
 				}
-			}
 
-			img { width:100%; }
+				.image {
+					padding-bottom:20px;
+				}
+			}
 		}
 		
 		.item.item-1 {
