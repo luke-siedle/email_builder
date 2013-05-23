@@ -1,0 +1,55 @@
+
+<!-- Styles for this template -->
+<%= stylesheet_link_tag "template_1/boilerplate", "template_1/style", "template_1/mobile" %>
+
+<%= $tmp.email_header(:text => "Problems viewing this email? Click here to view it online.", :url => "//google.co.za") %>
+
+<table class="header">
+	<tr>
+		<td>
+			<%= $tmp.main_banner(:title => "Beautiful", :sub_title => "Email Themes") %>
+		</td>
+	</tr>
+
+	<tr>
+		<td class="sub-header">
+			<%= $tmp.simple_hero(
+					:text => "The world needs more beautiful email themes, don't you think?",
+					:content => $tmp.simple_nav(:links => [
+						{:btn => $tmp.btn(:text => "BEAUTIFUL DESIGNS").safe },
+						{:btn => $tmp.btn(:text => "RESPONSIVE TO MOBILE").safe },
+						{:btn => $tmp.btn(:text => "TESTED IN LITMUS").safe }
+					]).safe
+			) %>
+		</td>
+	</tr>
+
+</table>
+
+<table class="body">
+	<tr>
+		<td class="paragraphs">
+
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, doloremque, consectetur, consequatur voluptatibus enim odio inventore velit et incidunt similique at nesciunt beatae eligendi ea nostrum reiciendis harum possimus molestiae. Aliquid, iure, similique, sunt ex praesentium illum deleniti qui libero laboriosam deserunt vitae quia reprehenderit modi fugiat commodi totam voluptatem. Corporis, quam!</p>
+
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, mollitia ab sequi minus similique voluptas dolorem distinctio soluta esse placeat quaerat debitis magnam numquam beatae ut enim odio aliquid sapiente! Ab quis voluptatem dolorum est iste ipsum cupiditate ex minus quasi repudiandae! Labore, quam accusamus sint quod similique maiores explicabo ducimus eum!</p>
+		</td>
+	</tr>
+
+	<tr>
+		<td class="columns">
+			<%= $tmp.title_copy_image(:items => [
+				{:title => "Create", :image => "http://placehold.it/200x200", :copy => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, tenetur, asperiores, laboriosam soluta voluptas hic suscipit quia quos eos deleniti optio veniam et perferendis corporis quam laborum ab veritatis error.",
+				:image_width => '100%' },
+				{:title => "Innovate", :image => "http://placehold.it/200x200", :copy => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, tenetur, asperiores, laboriosam soluta voluptas hic suscipit quia quos eos deleniti optio veniam et perferendis corporis quam laborum ab veritatis error.", :image_width => '100%' }
+			]) %>
+		</td>
+	</tr>
+
+</table>
+
+<%= $tmp.email_footer(
+	:info => "Sent by Luke. 115 Station Ridge Road.", 
+	:subscribe => "Manage your subscription to this newsletter",
+	:subscribe_url => "//google.co.za"
+) %>

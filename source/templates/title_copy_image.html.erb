@@ -1,0 +1,19 @@
+<table class="{{class}}">
+	<tr>
+		{{#each items}}
+			<td class="item item-{{@index}}">
+				<table>
+					<tr>
+						<td class="title">{{title}}</td>
+					</tr>
+					<tr>
+						<td class="copy"><p>{{copy}}</p></td>
+					</tr>
+					<tr>
+						<td class="image"><img src="{{image}}" alt="" width="{{image_width}}"></td>
+					</tr>
+				</table>
+			</td>
+		{{/each}}
+	</tr>
+</table>

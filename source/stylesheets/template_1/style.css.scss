@@ -1,0 +1,230 @@
+/* NOTES
+--------------------------------------------------------------------------------
+- Gmail
+To fix images rendering with whitespace on Gmail apply the .image_fix class 
+- Yahoo
+Use all media queries with type selectors to prevent media query rendering
+- General
+Nest tables and use cell padding to create spacing between elements.
+Premailer doesn't support media queries at this time, include them in
+the footer after processing the html.
+
+Outlook does not understand important tags, so you need to duplicate any 
+css inside the preflighted email. 
+
+Only use percentages for line-height (Outlook)
+
+------------------------------------------------------------------------------*/
+
+/* Colors
+------------------------------------------------------------------------------*/
+$black : #000000;
+$white : #ffffff;
+$grey : #f5f5f5;
+$darkgrey : #cccccc;
+$color_1 : orange;
+$color_2 : red;
+
+/* Typography
+------------------------------------------------------------------------------*/
+/* Font compatibility:
+http://www.campaignmonitor.com/blog/post/3190/font-stacks-used-in-email/ */
+
+$font : Helvetica, Arial, sans-serif;
+$font_size : 14px;
+$font_serif : Times, serif;
+
+@mixin gutter {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+@mixin btn( $bgcolor, $textcolor, $width ){
+	.btn td {
+		padding:15px 10px;
+		background: $bgcolor;
+		width: $width;
+		a {
+			color:$textcolor;
+			font-size:0.9em;
+		}
+	}
+}
+
+/* Resets */
+
+body, table, p, a {
+	font-family		: $font;
+	font-size		: $font_size;
+	text-decoration : none;
+}
+
+h1, h2, h3, h4, h5 {
+	font-family		: $font;
+	margin:0;
+	padding:0;
+}
+
+p {
+	margin			: 0;
+	font-size		: $font_size;
+	line-height 	: 130%;
+}
+
+/* Links */
+a, a:visited, a:active { text-decoration : none; }
+
+a img, img { border : 0; display:block; }
+
+/* Tables */
+table { 
+	width : 100%; 
+}
+
+/* Background */
+
+body {
+	// background-image: url('images/background.png');
+	// background-repeat: repeat;
+	
+	margin: 0;
+	padding: 0;
+}
+
+table#background {
+	// background: $grey;
+	width:600px;
+	max-width:600px;
+}
+
+/* Content : Wrapper 
+------------------------------------------------------------------------------*/
+.wrapper {}
+
+.header, .body, .footer {}
+
+/* Content : Header
+------------------------------------------------------------------------------*/
+.header {
+	.main_banner {
+		.title {
+			@include gutter;
+			font-size:10em;
+			font-weight:bold;
+			text-align:center;
+			color: $black;
+			line-height:100%;
+		}
+
+		.sub-title {
+			text-align:center;
+			p {
+				@include gutter;
+				font-size:6.7em;
+				line-height:100%;
+				color: $black;
+				margin:0;
+			}
+		}
+	}
+
+	.sub-header {
+		background:$color_1;
+		border-top:5px $black solid;
+		border-bottom:5px $black solid;
+
+		.text {
+			padding:120px 100px;
+			padding-bottom:60px;
+			text-align:center;
+			font-size:2em;
+			color: $white;
+			font-family: $font_serif;
+		}
+
+		.simple_nav td {
+			text-align:center;
+			@include gutter;
+			padding-bottom:10px;
+			@include btn($black, $white, 120px );
+		}
+	}
+
+}
+
+.body {
+	background: $white;
+	.paragraphs {
+		@include gutter;
+		p {
+			margin:20px 0;
+			font-size:$font_size;
+		}
+	}
+
+	.columns {
+		padding-bottom:20px;
+		border-bottom: 3px solid $black;
+		.item {
+			@include gutter;
+			table {
+				background: $color_1;
+				td {
+					width:100%;
+					padding:10px 20px;
+				}
+				.title {
+					font-size:4em;
+					font-weight:bold;
+					color: $black;
+					line-height:100%;
+				}
+				.copy {
+					font-size:$font_size;
+					color: $black;
+				}
+			}
+
+			img { width:100%; }
+		}
+		
+		.item.item-1 {
+			table {
+				background:$white; 
+				.title, .copy {
+					color : $color_1;
+				}
+			}
+		}
+	}
+
+}
+
+.email_header td, .email_footer td {
+	text-align:center;
+	padding:10px 0;
+	a { 
+		color: $darkgrey; 
+		font-size:0.9em; 
+		text-decoration:underline;
+	}
+}
+
+.email_footer td {
+	text-align:left;
+	padding:10px 10px 0;
+	p {
+		font-size:0.9em;
+		margin:5px 0;
+	}
+	a { font-size : 1em; }
+}
+
+/* Device Support
+------------------------------------------------------------------------------*/
+.device-mobile {
+	display		: none;
+	width		: 0;
+	overflow	: hidden;
+	float		: left;	
+}
