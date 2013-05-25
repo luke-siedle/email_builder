@@ -40,7 +40,7 @@ $font_serif : Times, serif;
 }
 
 @mixin btn( $bgcolor, $textcolor, $width ){
-	.btn td {
+	.mpt-btn td {
 		padding:15px 10px;
 		background: $bgcolor;
 		width: $width;
@@ -53,45 +53,54 @@ $font_serif : Times, serif;
 
 /* Resets */
 
-body, table, p, a {
+body.mpt-wrapper {
 	font-family		: $font;
 	font-size		: $font_size;
-	text-decoration : none;
-}
-
-h1, h2, h3, h4, h5 {
-	font-family		: $font;
-	margin:0;
-	padding:0;
-}
-
-p {
-	margin			: 0;
-	font-size		: $font_size;
-	line-height 	: 130%;
-}
-
-/* Links */
-a, a:visited, a:active { text-decoration : none; }
-
-a img, img { border : 0; display:block; }
-
-/* Tables */
-table { 
-	width : 100%; 
-}
-
-/* Background */
-
-body {
-	// background-image: url('images/background.png');
-	// background-repeat: repeat;
-	
 	margin: 0;
 	padding: 0;
 }
 
-table#background {
+#mpt-wrapper {
+
+	table, p, a {
+		font-family		: $font;
+		font-size		: $font_size;
+	}
+	a {
+		text-decoration : none;
+	}
+
+	h1, h2, h3, h4, h5 {
+		font-family		: $font;
+		margin:0;
+		padding:0;
+	}
+
+	p {
+		margin			: 0;
+		font-size		: $font_size;
+		line-height 	: 130%;
+	}
+
+	/* Links */
+	a, a:visited, a:active { text-decoration : none; }
+
+	a img, img { border : 0; display:block; }
+
+	/* Tables */
+	table { 
+		width : 100%;
+	}
+}
+
+/* Background */
+
+body.mpt-wrapper {
+	// background-image: url('images/background.png');
+	// background-repeat: repeat;
+}
+
+table#mpt-wrapper {
 	background: $grey;
 	width:600px;
 	max-width:600px;
@@ -99,41 +108,36 @@ table#background {
 
 /* Content : Wrapper 
 ------------------------------------------------------------------------------*/
-.wrapper {}
-
 .header, .body, .footer {}
 
 /* Content : Header
 ------------------------------------------------------------------------------*/
-.header {
-	.main_banner {
-		.title {
+.mpt-header {
+	.mpt-cover {
+		.mpt-title {
 			@include gutter;
-			font-size:9.5em;
+			font-size:7.25em;
 			font-weight:bold;
 			text-align:center;
 			color: $black;
 			line-height:100%;
 		}
 
-		.sub-title {
+		.mpt-sub-title {
 			text-align:center;
-			p {
-				@include gutter;
-				font-size:6.25em;
-				line-height:100%;
-				color: $black;
-				margin:0;
-			}
+			font-size:5.75em;
+			line-height:100%;
+			color: $black;
+			margin:0;
 		}
 	}
 
-	.sub-header {
+	.mpt-sub-header {
 		background:$color_1;
 		border-top:5px $black solid;
 		border-bottom:5px $black solid;
-
-		.text {
+		
+		.mpt-text {
 			padding:120px 100px;
 			padding-bottom:60px;
 			text-align:center;
@@ -142,9 +146,10 @@ table#background {
 			font-family: $font_serif;
 		}
 
-		.simple_nav td {
+		.mpt-nav td {
 			text-align:center;
-			@include gutter;
+			padding-left:10px;
+			padding-right:10px;
 			padding-bottom:10px;
 			@include btn($black, $white, 100px );
 		}
@@ -152,21 +157,26 @@ table#background {
 
 }
 
-.body {
+.mpt-body {
 	background: $white;
-	.paragraphs {
+
+	.mpt-paragraphs {
 		@include gutter;
-		p {
-			margin:20px 0;
-			font-size:$font_size;
-		}
+		padding-top:10px;
+		padding-bottom:20px;
 	}
 
-	.columns {
+	.mpt-p td {
+		padding-top:10px;
+		padding-bottom:0;
+		font-size:$font_size;
+	}
+
+	.mpt-columns {
 		padding-bottom:20px;
 		border-bottom: 3px solid $black;
 		width:50%;
-		.item {
+		.mpt-column {
 			@include gutter;
 			table {
 				background: $color_1;
@@ -174,27 +184,27 @@ table#background {
 					width:100%;
 					padding:10px 20px;
 				}
-				.title {
+				.mpt-title {
 					font-size:4em;
 					font-weight:bold;
 					color: $black;
 					line-height:100%;
 				}
-				.copy {
+				.mpt-copy {
 					font-size:$font_size;
 					color: $black;
 				}
 
-				.image {
+				.mpt-image {
 					padding-bottom:20px;
 				}
 			}
 		}
 		
-		.item.item-1 {
+		.mpt-column.mpt-column-1 {
 			table {
 				background:$white; 
-				.title, .copy {
+				.mpt-title, .mpt-copy {
 					color : $color_1;
 				}
 			}
@@ -203,7 +213,7 @@ table#background {
 
 }
 
-.email_header td, .email_footer td {
+.mpt-archive-header td, .mpt-footer td {
 	text-align:center;
 	padding:10px 0;
 	a { 
@@ -213,7 +223,7 @@ table#background {
 	}
 }
 
-.email_footer td {
+.mpt-footer td {
 	text-align:left;
 	padding:10px 10px 0;
 	p {

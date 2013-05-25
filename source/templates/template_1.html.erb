@@ -1,0 +1,112 @@
+{{#with header}}
+	<table class="mpt-archive-header">
+		<tr>
+			<td><a href="{{url}}">{{text}}</a></td>
+		</tr>
+	</table>
+{{/with}}
+
+<table class="mpt-header">
+	<tr>
+		<td>
+			{{#with cover}}
+				<table class="mpt-cover">
+					<tr>
+						<td class="mpt-title">{{title}}</td>
+					</tr>
+					<tr>
+						<td class="mpt-sub-title">
+							<span>{{sub_title}}</span>
+						</td>
+					</tr>
+				</table>
+			{{/with}}
+		</td>
+	</tr>
+	<tr>
+		<td class="mpt-sub-header">
+			{{#with simple_hero}}
+				<table class="mpt-hero">
+					<tr>
+						<td class="mpt-text">{{text}}</td>
+					</tr>
+					<tr>
+						<td class="mpt-nav">
+							{{#with nav}}
+								<table class="">
+									<tr>
+										{{#each links}}
+											<td>
+												
+												<table class="mpt-btn">
+													<tr>
+														<td>
+															<a href="{{url}}">{{text}}</a>
+														</td>
+													</tr>
+												</table>
+
+											</td>
+										{{/each}}
+									</tr>
+								</table>
+							{{/with}}
+						</td>
+					</tr>
+				</table>
+			{{/with}}
+		</td>
+	</tr>
+
+</table>
+
+<table class="mpt-body">
+	<tr>
+		<td class="mpt-paragraphs">
+			<table class="mpt-p">
+				{{#each paragraphs}}
+				<tr>
+					<td>
+						{{content}}
+					</td>
+				</tr>
+				{{/each}}
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td class="mpt-columns">
+			<table>
+				<tr>
+					{{#each columns}}
+						<td class="mpt-column mpt-column-{{@index}}">
+							<table>
+								<tr>
+									<td class="mpt-title">{{title}}</td>
+								</tr>
+								<tr>
+									<td class="mpt-image"><img src="{{image}}" alt=""></td>
+								</tr>
+								<tr>
+									<td class="mpt-copy">{{copy}}</td>
+								</tr>
+							</table>
+						</td>
+					{{/each}}
+				</tr>
+			</table>
+		</td>
+	</tr>
+
+</table>
+
+{{#with footer}}
+	<table class="mpt-footer">
+		<tr>
+			<td>
+				<p>{{info}}</p>
+				<p><a href="{{subscribe_url}}">{{subscribe}}</a></p>
+			</td>
+		</tr>
+	</table>
+{{/with}}

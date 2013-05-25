@@ -1,7 +1,3 @@
-# Add handlebars 
-require 'handlebars'
-require 'template'
-
 module PremailerMod
   class << self
     def registered(app)
@@ -19,30 +15,6 @@ module PremailerMod
 end
 
 ::Middleman::Extensions.register(:premailer_mod, PremailerMod) 
-
-module HandlebarsLoad
-  class << self 
-    def registered(app)
-
-      app.before do
-
-        @handlebars = Handlebars::Context.new
-          
-        Dir.foreach( Dir.pwd + '/source/templates/' ) do |t|
-          next if t == '.' or t == '..'
-          HandlebarTemplate.add_template t
-        end
-
-        $tmp = HandlebarTemplate.new
-        true
-      end
-      
-      alias :included :registered
-    end
-  end
-end
-
-::Middleman::Extensions.register(:handlebars_load, HandlebarsLoad) 
 
 ###
 # Compass
@@ -99,8 +71,6 @@ set :js_dir, 'javascripts'
 
 set :images_dir, 'images'
 
-activate :handlebars_load
-
 # Build-specific configuration
 configure :build do
   # For example, change the Compass output style for deployment
@@ -124,6 +94,5 @@ configure :build do
   # set :http_path, "/Content/images/"
 
   activate :premailer_mod
-  activate :handlebars_load
 
 end
